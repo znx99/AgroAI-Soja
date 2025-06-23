@@ -55,11 +55,13 @@ def randow_image():
         
             
 #reset image
-
+#python -m PyInstaller --clean --noconfirm main.spec
 #Função de scanear imagem
 def scan_image():
+    button_scan.configure(state="disabled")
     global stop_event
-    
+    label_doente.configure(text="")
+    label_healtly.configure(text="")
     print(caminho_arquivo)
     #Criando a animação das imagens
     if stop_event == False:
@@ -78,9 +80,13 @@ def scan_image():
         result = main(image_path=caminho_arquivo)
         print(result)  
         if str(result).startswith("0"):
-            label_result.configure(text="Planta Doente!")
+            label_result.configure(text="")
+            label_doente.configure(text="Planta Doente!")
+
         elif str(result).startswith("1"):
-            label_result.configure(text="Planta saudável!")
+            label_result.configure(text="")
+            label_healtly.configure(text="Planta saudável!")
+
         
         stop_event = True
         label_imagem.configure(image=None)
@@ -90,6 +96,8 @@ def scan_image():
         imagem_tk = ImageTk.PhotoImage(nova_imagem)
         label_imagem.configure(image=imagem_tk)
         label_imagem.image = imagem_tk
+        button_scan.configure(state="normal")
+
         
     thread_scan = threading.Thread(target=ai_scan)
     thread_scan.start()
@@ -108,8 +116,8 @@ fonte_arial_negrito_12 = customtkinter.CTkFont('Arial', 12, 'bold')
 fonte_arial_negrito_15 = customtkinter.CTkFont('Arial', 15, 'bold')
 
 #Definindo o icone da janella
-icon_path = resource_path("vector-soil-plant-icon (1).ico")
-janella.iconbitmap(icon_path)
+#icon_path = resource_path("vector-soil-plant-icon (1).ico")
+#janella.iconbitmap(icon_path)
 #Definindo valores X e Y
 valorY = 400
 valorX = 700
@@ -136,8 +144,9 @@ janella.protocol("WM_DELETE_WINDOW", on_closing)
 title_plant_scan = ctk.CTkLabel(janella, text="PlantScan", font=fonte_arial_negrito_18)
 frame_left = ctk.CTkFrame(janella, height=300, width=335,corner_radius=10)
 frame_right = ctk.CTkFrame(janella, height=300, width=335, corner_radius=10)
-label_result = ctk.CTkLabel(janella, text="", font=fonte_arial_negrito_18)
-
+label_result = ctk.CTkLabel(janella, text=" ", font=fonte_arial_negrito_18)
+label_healtly = ctk.CTkLabel(janella, text=" ", font= fonte_arial_negrito_18)
+label_doente = ctk.CTkLabel(janella, text=" ", font=fonte_arial_negrito_18)
 
 #Carregando imagem
 nova_imagem = Image.open(f"plant-logo-icon-design-free-vector.jpg")
@@ -162,7 +171,8 @@ title_plant_scan.grid(row=0, column=0, padx=307, pady=10, sticky='w')
 frame_left.grid(row=1, column=0,padx=10, pady=0, sticky="w")   
 frame_right.grid(row=1, column=0,padx=355, pady=0, sticky="w")
 label_result.grid(row=2, column=0, padx=200, pady=0, sticky="w")
-
+label_healtly.grid(row=2, column=0, padx=285, pady=0, sticky="w")
+label_doente.grid(row=2, column=0, padx=290, pady=0, sticky="w")
 #Posicionando os elementos do frame primario
 label_imagem.grid(row=0, column=0, padx=10,pady=10, sticky="w")
 
