@@ -9,6 +9,7 @@ from PIL import Image, ImageTk
 import threading
 from time import sleep
 from tkinter import messagebox
+import random
 
 caminho_arquivo = None
 #Função resource_path
@@ -38,43 +39,58 @@ def selecionar_arquivo():
         messagebox.showerror("Selecione o Arquivo", "Você não selecionou o arquivo!")
     
 #Função de imagens
-should_stop = False
+stop_event = False
+
 def randow_image():
-    global should_stop
-    while should_stop == False:
-        numero = 1
-        for i in range(153):
-            sleep(0.05)
-            label_imagem.configure(image=None)
-            label_imagem.image = None
-            nova_imagem = Image.open(f"Imagens/healthy ({numero}).jpg")
-            nova_imagem = nova_imagem.resize((312, 280), Image.LANCZOS)
-            imagem_tk = ImageTk.PhotoImage(nova_imagem)
-            label_imagem.configure(image=imagem_tk)
-            label_imagem.image = imagem_tk
-            numero += 1
+    global stop_event
+    while stop_event == False:
+        numero = random.randint(1, 153)
+        label_imagem.configure(image=None)
+        label_imagem.image = None
+        nova_imagem = Image.open(f"Imagens/healthy ({numero}).jpg")
+        nova_imagem = nova_imagem.resize((312, 280), Image.LANCZOS)
+        imagem_tk = ImageTk.PhotoImage(nova_imagem)
+        label_imagem.configure(image=imagem_tk)
+        label_imagem.image = imagem_tk
+        
+            
+#reset image
 
 #Função de scanear imagem
 def scan_image():
+    global stop_event
+    
     print(caminho_arquivo)
     #Criando a animação das imagens
-    thread = threading.Thread(target=randow_image)
-    thread.start()
+    if stop_event == False:
+        thread = threading.Thread(target=randow_image)
+        thread.start()
+    else:
+        stop_event = False
+        thread = threading.Thread(target=randow_image)
+        thread.start()
     #Iniciando scaneamento
     result = None
     label_result.configure(text="Verificando padrões visuais...")
     def ai_scan():
         global result
-        global should_stop
+        global stop_event
         result = main(image_path=caminho_arquivo)
         print(result)  
-        label_result.configure(text=result)
-        should_stop = True
-        sleep(1)
+        if str(result).startswith("0"):
+            label_result.configure(text="Planta Doente!")
+        elif str(result).startswith("1"):
+            label_result.configure(text="Planta saudável!")
+        
+        stop_event = True
+        label_imagem.configure(image=None)
+        label_imagem.image = None
         nova_imagem = Image.open(f"plant-logo-icon-design-free-vector.jpg")
         nova_imagem = nova_imagem.resize((312, 280), Image.LANCZOS)
         imagem_tk = ImageTk.PhotoImage(nova_imagem)
         label_imagem.configure(image=imagem_tk)
+        label_imagem.image = imagem_tk
+        
     thread_scan = threading.Thread(target=ai_scan)
     thread_scan.start()
     
@@ -124,9 +140,10 @@ label_result = ctk.CTkLabel(janella, text="", font=fonte_arial_negrito_18)
 
 
 #Carregando imagem
-nova_imagem = Image.open("OIP.jpg")
-nova_imagem = nova_imagem.resize((300, 200), Image.LANCZOS)
+nova_imagem = Image.open(f"plant-logo-icon-design-free-vector.jpg")
+nova_imagem = nova_imagem.resize((312, 280), Image.LANCZOS)
 imagem_tk = ImageTk.PhotoImage(nova_imagem)
+
 #Definindo os elementos do frame primario da tela AI
 label_imagem = ctk.CTkLabel(frame_left, image=imagem_tk, text="")
 
