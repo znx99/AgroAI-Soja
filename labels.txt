@@ -1,0 +1,2 @@
+0 Plantas Doentes
+1 Plantas Saudáveis
