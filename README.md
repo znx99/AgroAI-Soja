@@ -47,7 +47,7 @@ Sistema de inteligência artificial que analisa imagens de drone para identifica
 ## 📬 Contato
 
 <div align="center">
-  <a href="[mailto:seuemail@exemplo.com](https://www.linkedin.com/in/guilherme-zanella-030656371/)">
+  <a href="https://www.linkedin.com/in/guilherme-zanella-030656371/">
     <img src="https://img.shields.io/badge/Enviar_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
   </a>
 </div>
