@@ -1,8 +1,4 @@
-# 🌱 SoyVision - Sistema de Identificação de Doenças na Soja
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x400.png?text=SoyVision+Interface+Preview" alt="SoyVision Preview" style="border-radius: 8px; border: 2px solid #2ecc71; max-width: 100%;">
-</div>
+# 🌱 PlantScan - Sistema de Identificação de Doenças na Soja
 
 ## 📌 Sobre o Projeto
 Sistema de inteligência artificial que analisa imagens de drone para identificar doenças em plantações de soja, permitindo aplicação localizada de fertilizantes e otimização de recursos.
