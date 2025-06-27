@@ -14,7 +14,7 @@ Sistema de inteligência artificial que analisa imagens de drone para identifica
   </a>
 </div>
 
-## 📚 Documentação
+## 📚 Projeto de Pesquisa
 
 <div align="center">
   <a href="https://docs.google.com/document/d/12k8Pz0OsodLHYR84tRIXFLK9zC-ybDr4CAUKQ2pAGrE/edit?usp=sharing" target="_blank">
