@@ -43,8 +43,10 @@ Sistema de inteligência artificial que analisa imagens de drone para identifica
   <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-</div>
-## 📬 Contato
+</div>  
+
+
+## 📬 Contato  
 
 <div align="center">
   <a href="https://www.linkedin.com/in/guilherme-zanella-030656371/">
