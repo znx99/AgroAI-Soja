@@ -44,4 +44,10 @@ Sistema de inteligência artificial que analisa imagens de drone para identifica
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </div>
+## 📬 Contato
 
+<div align="center">
+  <a href="[mailto:seuemail@exemplo.com](https://www.linkedin.com/in/guilherme-zanella-030656371/)">
+    <img src="https://img.shields.io/badge/Enviar_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+  </a>
+</div>
