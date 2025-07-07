@@ -18,7 +18,7 @@ Sistema de inteligência artificial que analisa imagens de drone para identifica
 
 <div align="center">
   <a href="https://docs.google.com/document/d/12k8Pz0OsodLHYR84tRIXFLK9zC-ybDr4CAUKQ2pAGrE/edit?usp=sharing" target="_blank">
-    <img src="https://img.shields.io/badge/📄_Acessar_Documentação_Completa-%230077B5?style=for-the-badge&logo=google-drive&logoColor=white" alt="Documentação">
+    <img src="https://img.shields.io/badge/📄_Acessar_projeto_de_pesquisa-%230077B5?style=for-the-badge&logo=google-drive&logoColor=white" alt="Documentação">
   </a>
 </div>
 
