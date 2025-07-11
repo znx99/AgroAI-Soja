@@ -21,14 +21,14 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 #Função para coletar o arquivo da imagem
 def selecionar_arquivo():
-    # Abre a janela de diálogo para seleção de arquivo
+    # Abre a janela para seleção de arquivo
     global caminho_arquivo
     caminho_arquivo = filedialog.askopenfilename(
         title="Selecione um arquivo",
         filetypes=(("Arquivos jpg", "*.jpg"), ("Todos os arquivos", "*.*"))
     )
     
-    # Verifica se um arquivo foi selecionado (usuário não cancelou)
+    # Verifica se um arquivo foi selecionado
     if caminho_arquivo:
         print(caminho_arquivo)
         nova_imagem = Image.open(caminho_arquivo)
@@ -54,7 +54,7 @@ def randow_image():
         label_imagem.image = imagem_tk
         
             
-#reset image
+#O comando abaixo server para compilar o arquivo em um executavel
 #python -m PyInstaller --clean --noconfirm main.spec
 #Função de scanear imagem
 def scan_image():
